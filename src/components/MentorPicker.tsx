@@ -22,7 +22,18 @@ export function MentorPicker({ selected, onSelect }: MentorPickerProps) {
                 : 'border-white/10 bg-white/5 hover:border-white/20'
             }`}
           >
-            <span className="text-2xl">{mentor.emoji || '🚫'}</span>
+            {mentor.video ? (
+              <video
+                src={mentor.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-10 h-10 object-cover rounded-lg"
+              />
+            ) : (
+              <span className="text-2xl">{mentor.emoji || '🚫'}</span>
+            )}
             <span className="text-[10px] text-white/60">{mentor.name}</span>
           </motion.button>
         )

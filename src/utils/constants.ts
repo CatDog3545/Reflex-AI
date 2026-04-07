@@ -50,6 +50,7 @@ export const MENTORS: MentorConfig[] = [
   { id: 'fox', name: 'Лисёнок', emoji: '🦊' },
   { id: 'owl', name: 'Сова', emoji: '🦉' },
   { id: 'cat', name: 'Котик', emoji: '🐱' },
+  { id: 'cat-video', name: 'Кот (видео)', emoji: '🐱', video: '/mentor/cat.mp4' },
   { id: 'robot', name: 'Робот', emoji: '🤖' },
   { id: 'star', name: 'Звёздочка', emoji: '⭐' },
 ]

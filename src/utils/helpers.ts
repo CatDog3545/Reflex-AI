@@ -4,6 +4,15 @@ export function formatTime(seconds: number): string {
   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
 }
 
+export const SOUNDS = {
+  tick: '/sounds/tick.mp3',
+  complete: '/sounds/complete.mp3',
+  click: '/sounds/click.mp3',
+  mentorIdle: '/sounds/mentor-idle.mp3',
+  mentorWorking: '/sounds/mentor-working.mp3',
+  mentorDone: '/sounds/mentor-done.mp3',
+}
+
 export function vibrate(pattern: number | number[] = 50): void {
   if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
     navigator.vibrate(pattern)

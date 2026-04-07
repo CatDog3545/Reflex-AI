@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useTimerStore } from '../store/timerStore'
 import { TimerDisplay } from '../components/TimerDisplay'
+import { VideoMentor } from '../components/VideoMentor'
 import { CATEGORIES, MENTORS } from '../utils/constants'
 import { getProgress, playSound, vibrate } from '../utils/helpers'
 
@@ -77,7 +78,16 @@ export function ActiveTimerPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       <AnimatePresence>
-        {mentor && mentor.emoji && mentor.id !== 'none' && (
+        {mentor && mentor.id !== 'none' && mentor.video ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="absolute top-16"
+          >
+            <VideoMentor isActive={timer.status === 'running'} size="lg" />
+          </motion.div>
+        ) : mentor && mentor.emoji ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,7 +102,7 @@ export function ActiveTimerPage() {
               {mentor.emoji}
             </motion.span>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
 
       <div className="mb-4">

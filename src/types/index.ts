@@ -18,6 +18,7 @@ export interface MentorConfig {
   name: string
   emoji: string
   animation?: string
+  video?: string
 }
 
 export interface TimerSession {
